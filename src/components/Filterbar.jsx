@@ -19,7 +19,6 @@ const Filterbar = () => {
       <div className="flex justify-between items-center w-full">
         <div className="flex">
           <select className='flex gap-4 w-full shadow mx-1 py-1 border focus:outline-none hover:border-indigo-500 rounded text-sm' onChange={(e) => dispatch(toggleSort(e.target.value))} >
-            <option value="">Sort by</option>
             <option value="new">New first</option>
             <option value="old">Old first</option>
           </select>

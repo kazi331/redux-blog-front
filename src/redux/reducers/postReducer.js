@@ -1,8 +1,8 @@
-import { DELETE_A_POST, GET_A_POST, LOAD_ALL_POST, READ_A_POST, SAVE_A_POST } from '../actions/actionsTypes'
+import { DELETE_A_POST, LOAD_ALL_POST, READ_A_POST, TOGGLE_BOOKMARK } from '../actions/actionsTypes'
 
 const initialState = {
     posts: [],
-    saved: [],
+    bookmark: [],
     reading: []
 }
 
@@ -10,10 +10,16 @@ const postReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_ALL_POST:
             return { ...state, posts: action.payload }
-        case SAVE_A_POST:
+        case TOGGLE_BOOKMARK:
+            if (state.bookmark.includes(action.payload)) {
+                return {
+                    ...state,
+                    bookmark: state.bookmark.filter(post => post !== action.payload)
+                }
+            }
             return {
                 ...state,
-                saved: [...state.saved, action.payload]
+                bookmark: [...state.bookmark, action.payload]
             }
         case READ_A_POST:
             return {

@@ -3,7 +3,7 @@ import { TOGGLE_FILTER, CLEAR_FILTER, TOGGLE_SORT } from "../actions/actionsType
 const initialState = {
     filter: [],
     sort: "",
-    search: ""
+    search: "",    
 }
 
 const filterReducer = (state = initialState, action) => {

@@ -2,9 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { bookmarkOn, commentIcon, dateIcon } from './Icons';
 import moment from 'moment'
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleBookmark } from '../redux/actions/actionCreators';
+
+
+
 
 const BlogCard = ({ post }) => {
+
   const { title, body, tags, _id, date } = post;
+  const bookmark = useSelector(state => state.post.bookmark);
+  const dispatch = useDispatch();
+  // check if bookmarked
+  const isBookmarked = bookmark.find(item => item._id === _id);
+  
+
   return (
     <div className='p-2 lg:w-1/3 md:w-1/2 w-full '>
       <div className="relative flex flex-col items-start p-4 mt-3 bg-white shadow rounded-lg bg-opacity-90 group hover:bg-opacity-100">
@@ -24,7 +36,7 @@ const BlogCard = ({ post }) => {
             {commentIcon}
             <span className="ml-1 leading-none">4</span>
           </div>
-          <button className='ml-auto p-1 scale-125 text-indigo-500 hover:bg-indigo-100 rounded-full '>{bookmarkOn}</button>
+          <button onClick={() => dispatch(toggleBookmark(post))} className={`ml-auto p-1 scale-125  hover:bg-indigo-100 rounded-full ${isBookmarked ? "text-indigo-500" : ""}`}>{bookmarkOn}</button>
         </div>
       </div>
     </div>

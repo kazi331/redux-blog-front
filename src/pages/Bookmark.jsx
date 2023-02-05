@@ -5,12 +5,12 @@ import BlogCard from '../components/BlogCard'
 
 const Bookmark = () => {
 
-  const {posts} = useSelector(state => state.post);
+  const {bookmark} = useSelector(state => state.post);
   return (
     <div className="">
   <div className="flex flex-wrap -m-2">
         {
-          posts.map(post => <BlogCard key={post._id} post={post} />)
+          bookmark.map(post => <BlogCard key={post._id} post={post} />)
         }
       </div>
     </div>
