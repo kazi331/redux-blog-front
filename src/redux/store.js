@@ -1,7 +1,8 @@
-import { combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore } from "redux";
 import postReducer from "./reducers/postReducer";
 import { composeWithDevTools } from '@redux-devtools/extension';
 import filterReducer from "./reducers/filterReducer";
+import thunk from 'redux-thunk';
 
 
 const rootReducer = combineReducers({
@@ -9,7 +10,7 @@ const rootReducer = combineReducers({
     filter: filterReducer
 })
 
-const store = createStore(rootReducer, composeWithDevTools())
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 export default store;
 
 

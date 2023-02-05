@@ -6,8 +6,8 @@ import Filterbar from '../components/Filterbar'
 const Home = () => {
   const { posts } = useSelector(state => state.post);
   const { sort, filter } = useSelector(state => state.filter);
-console.log(sort)
 
+  // SORT AND FILTER POSTS ACCORDING TO FILTER AND SORT STATE FROM REDUX STORE 
   let content = posts.map(post => <BlogCard key={post._id} post={post} />);
   content = posts
 

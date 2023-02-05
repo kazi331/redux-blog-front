@@ -1,4 +1,4 @@
-import { CLEAR_FILTER, TOGGLE_BOOKMARK, TOGGLE_FILTER, TOGGLE_SORT } from "./actionsTypes"
+import { CLEAR_FILTER, DELETE_A_POST, TOGGLE_BOOKMARK, TOGGLE_FILTER, TOGGLE_SORT } from "./actionsTypes"
 
 export const toggleFilter = (tag) => {
     return {
@@ -8,10 +8,11 @@ export const toggleFilter = (tag) => {
 }
 export const clearFilter = () => {
     return { type: CLEAR_FILTER }
-} 
+}
 export const toggleSort = (value) => {
     return { type: TOGGLE_SORT, payload: value }
 }
 export const toggleBookmark = (post) => {
     return { type: TOGGLE_BOOKMARK, payload: post }
 }
+
