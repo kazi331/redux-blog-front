@@ -1,12 +1,13 @@
 import moment from 'moment'
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { deletePost } from '../../redux/thunk/managePost'
+import DeleteModal from '../modals/DeleteModal'
 
 const PostList = () => {
   const { posts } = useSelector(state => state.post);
-  const dispatch = useDispatch();
+  const [showModal, setShowModal] = useState(false)
+
   return (
     <section className="text-gray-400 bg-gray-900 body-font">
       <div className="container py-24 ">
@@ -34,7 +35,7 @@ const PostList = () => {
                       <td className="py-1 px-2"> {moment(date).format("l")} </td>
                       <td className="flex gap-2 py-1 px-2">
                         <Link to={`/dashboard/edit-blog/${_id}`} className="flex text-white bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-600 rounded">Edit</Link>
-                        <button onClick={() => dispatch(deletePost(_id))} className="flex text-white bg-red-500 border-0 py-1 px-3 focus:outline-none hover:bg-red-600 rounded">Delete</button>
+                        <button onClick={() => setShowModal(_id)} className="flex text-white bg-red-500 border-0 py-1 px-3 focus:outline-none hover:bg-red-600 rounded">Delete</button>
                       </td>
                     </tr>
                   )
@@ -44,6 +45,7 @@ const PostList = () => {
           </table>
         </div>
       </div>
+      {showModal && <DeleteModal id={showModal} setShowModal={setShowModal} />}
     </section>
   )
 }

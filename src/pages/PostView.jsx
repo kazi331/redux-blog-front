@@ -11,7 +11,7 @@ const PostView = () => {
 
   // const { title, body, tags, author, _id, date } = post;
   return (
-    <div >
+    <div className='w-full max-w-4xl mx-auto' >
       <h2 className='text-xl'>{post?.title}</h2>
       <p className='text-sm mt-2'>{post?.author}</p>
       <p className='text-xs mb-3'>{moment(post?.date).format('lll')}</p>
