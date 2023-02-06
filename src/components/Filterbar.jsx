@@ -5,7 +5,7 @@ import { toggleFilter, toggleSort, clearFilter } from '../redux/actions/actionCr
 
 const Filterbar = () => {
   const { filter, sort } = useSelector(state => state.filter)
-  const activeClass = "bg-indigo-500 text-white dark:bg-indigo-500"
+
   const dispatch = useDispatch();
   const tags = [
     { id: "javascript", name: "Javascript" },
@@ -26,7 +26,7 @@ const Filterbar = () => {
         <div className="flex">
           {filter.length ? <button onClick={() => dispatch(clearFilter())} className="shadow px-2 mx-1 py-1 border dark:border-transparent  bg-red-500 text-white hover:border-red-500 rounded text-sm">Clear Filter</button> : null}
           {
-            tags.map(tag => <button key={tag.id} onClick={() => dispatch(toggleFilter(tag.id))} className={`shadow px-2 mx-1 py-1 border dark:border-gray-700 hover:border-indigo-500 dark:hover:border-indigo-500 dark:bg-gray-700 rounded text-sm ${filter.includes(tag.id) ? activeClass : 'bg-white'}`}>{tag.name}</button>)
+            tags.map(tag => <button key={tag.id} onClick={() => dispatch(toggleFilter(tag.id))} className={`shadow px-2 mx-1 py-1 border dark:border-transparent hover:border-indigo-500   rounded text-sm  ${filter.includes(tag.id) ? "bg-indigo-500 text-white" : 'bg-white dark:bg-gray-700'}`}>{tag.name}</button>)
           }
         </div>
       </div>

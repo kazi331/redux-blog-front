@@ -3,7 +3,7 @@ export const LOAD_ALL_POST = "LOAD_ALL_POST"
 export const GET_A_POST = "GET_A_POST"
 export const DELETE_A_POST = "DELETE_A_POST"
 export const EDIT_A_POST = "EDIT_A_POST"
-export const READ_A_POST = "READ_A_POST"
+export const ADD_TO_READING = "ADD_TO_READING"
 export const TOGGLE_BOOKMARK = "TOGGLE_BOOKMARK"
 
 

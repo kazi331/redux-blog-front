@@ -1,13 +1,20 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import moment from 'moment'
-import { useSelector } from 'react-redux';
+import moment from 'moment';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { addToReading } from '../redux/actions/actionCreators';
 
 const PostView = () => {
   const { id } = useParams();
   const post = useSelector(state => state.post.posts.find(post => post._id === id));
 
-  console.log(post)
+  const dispatch = useDispatch();
+  // add to reading list
+  useEffect(() => {
+    dispatch(addToReading(post))
+  }, [])
+
+
 
   // const { title, body, tags, author, _id, date } = post;
   return (

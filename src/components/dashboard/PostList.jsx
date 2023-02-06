@@ -32,7 +32,7 @@ const PostList = () => {
                       <td> <input type="checkbox" name="" id="" className='m-3 p-1 bg-gray-200 rounded-sm border-none text-indigo-500' /></td>
                       <td>
                         <details>
-                          <summary className="py-1 px-2 cursor-pointer whitespace-nowrap list-none -ml-2" id="detail">{title.slice(0, 40)}{title.length > 40 && "..."}</summary>
+                          <summary className="py-1 px-2 cursor-pointer whitespace-nowrap list-none -ml-2" id="detail" title="Click title to show content" >{title.slice(0, 40)}{title.length > 40 && "..."}</summary>
                           <p className='max-w-sm max-h-16 overflow-auto'>{body}</p>
                         </details>
                       </td>

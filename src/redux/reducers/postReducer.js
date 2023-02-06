@@ -1,4 +1,4 @@
-import { CREATE_A_POST, DELETE_A_POST, LOAD_ALL_POST, READ_A_POST, TOGGLE_BOOKMARK } from '../actions/actionsTypes'
+import { CREATE_A_POST, DELETE_A_POST, LOAD_ALL_POST, ADD_TO_READING, TOGGLE_BOOKMARK } from '../actions/actionsTypes'
 
 const initialState = {
     posts: [],
@@ -21,7 +21,11 @@ const postReducer = (state = initialState, action) => {
                 ...state,
                 bookmark: [...state.bookmark, action.payload]
             }
-        case READ_A_POST:
+        case ADD_TO_READING:
+            if (state.reading.find(post => post._id === action.payload._id)) {
+                console.log('includes');
+                return state;
+            }
             return {
                 ...state,
                 reading: [...state.reading, action.payload]

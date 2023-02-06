@@ -16,13 +16,12 @@ const BlogCard = ({ post }) => {
   // check if bookmarked
   const isBookmarked = bookmark.find(item => item._id === _id);
 
-
   return (
     <div className='p-2 lg:w-1/3 md:w-1/2 w-full '>
       <div className="relative flex flex-col items-start p-4 mt-3 bg-white dark:bg-gray-800 shadow rounded-lg bg-opacity-90 group hover:bg-opacity-100">
 
           <div className='flex flex-wrap gap-1 ml-auto'>
-          {tags.map(tag => <button key={tag} onClick={() => dispatch(toggleFilter(tag))} className="hover:shadow flex items-center h-6 px-3 text-xs font-semibold text-green-500 bg-green-100 dark:bg-indigo-500 dark:text-white rounded">{tag}</button>)}
+          {tags.map(tag => <button key={tag} onClick={() => dispatch(toggleFilter(tag))} className="hover:shadow flex items-center h-6 px-3 text-xs font-semibold text-indigo-500 bg-indigo-100 dark:bg-indigo-500 dark:text-white rounded-sm">{tag}</button>)}
           </div>
 
         <Link to={`/post/${_id}`} className='my-1 font-medium hover:text-indigo-600 dark:hover:text-indigo-400'>{title}</Link>
