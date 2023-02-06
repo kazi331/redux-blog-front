@@ -28,14 +28,21 @@ const PostList = () => {
                 posts?.map(post => {
                   const { title, _id, body, author, date } = post
                   return (
-                    <tr key={post._id} className="tracking-wider whitespace-nowrap ">
+                    <tr key={post._id} className="tracking-wider">
                       <td> <input type="checkbox" name="" id="" className='m-3 p-1 bg-gray-200 rounded-sm border-none text-indigo-500' /></td>
-                      <td className="py-1 px-2">{title.slice(0, 30)}</td>
-                      <td className="py-1 px-2">{author}</td>
+                      <td>
+                        <details>
+                          <summary className="py-1 px-2 cursor-pointer whitespace-nowrap list-none -ml-2" id="detail">{title.slice(0, 40)}{title.length > 40 && "..."}</summary>
+                          <p className='max-w-sm max-h-16 overflow-auto'>{body}</p>
+                        </details>
+                      </td>
+                      <td className="py-1 px-2 whitespace-nowrap">{author}</td>
                       <td className="py-1 px-2"> {moment(date).format("l")} </td>
-                      <td className="flex gap-2 py-1 px-2">
-                        <Link to={`/dashboard/edit-blog/${_id}`} className="flex text-white bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-600 rounded">Edit</Link>
-                        <button onClick={() => setShowModal(_id)} className="flex text-white bg-red-500 border-0 py-1 px-3 focus:outline-none hover:bg-red-600 rounded">Delete</button>
+                      <td className=" py-1 px-2">
+                        <div className='flex gap-2'>
+                          <Link to={`/dashboard/edit-blog/${_id}`} className="flex text-white bg-indigo-500 border-0 py-1 px-3 focus:outline-none hover:bg-indigo-600 rounded">Edit</Link>
+                          <button onClick={() => setShowModal(_id)} className="flex text-white bg-red-500 border-0 py-1 px-3 focus:outline-none hover:bg-red-600 rounded">Delete</button>
+                        </div>
                       </td>
                     </tr>
                   )

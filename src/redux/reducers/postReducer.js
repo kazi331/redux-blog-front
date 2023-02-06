@@ -1,4 +1,4 @@
-import { DELETE_A_POST, LOAD_ALL_POST, READ_A_POST, TOGGLE_BOOKMARK } from '../actions/actionsTypes'
+import { CREATE_A_POST, DELETE_A_POST, LOAD_ALL_POST, READ_A_POST, TOGGLE_BOOKMARK } from '../actions/actionsTypes'
 
 const initialState = {
     posts: [],
@@ -30,6 +30,11 @@ const postReducer = (state = initialState, action) => {
             return {
                 ...state,
                 posts: state.posts.filter(post => post._id !== action.payload)
+            }
+        case CREATE_A_POST:
+            return {
+                ...state,
+                posts: [...state.posts, action.payload]
             }
         default:
             return state;

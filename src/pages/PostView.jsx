@@ -18,7 +18,7 @@ const PostView = () => {
       <p>{post?.body}</p>
 
       <div className='mt-3 flex flex-wrap items-center gap-1 ml-auto'>
-        Relivant to: {post?.tags?.map(tag => <button key={tag} className="shadow border hover:border hover:border-green-500 flex items-center h-6 px-3 text-xs font-semibold text-green-500 bg-green-100 rounded">{tag}</button>)}
+        Relivant to: {post?.tags?.map(tag => <button key={tag} className="shadow  flex items-center h-6 px-3 text-xs font-semibold text-green-500 bg-green-100  dark:bg-indigo-500 dark:text-white rounded">{tag}</button>)}
       </div>
     </div>
   )
