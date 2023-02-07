@@ -1,9 +1,9 @@
-import { TOGGLE_FILTER, CLEAR_FILTER, TOGGLE_SORT } from "../actions/actionsTypes"
+import { TOGGLE_FILTER, CLEAR_FILTER, TOGGLE_SORT, SEARCH_POST } from "../actions/actionsTypes"
 
 const initialState = {
     filter: [],
     sort: "",
-    search: "",    
+    search: "",
 }
 
 const filterReducer = (state = initialState, action) => {
@@ -19,6 +19,10 @@ const filterReducer = (state = initialState, action) => {
             return { ...state, filter: [] };
         case TOGGLE_SORT:
             return { ...state, sort: action.payload }
+        case SEARCH_POST:
+            return {
+                ...state, search: action.payload
+            }
         default: return state;
     }
 }

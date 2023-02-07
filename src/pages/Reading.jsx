@@ -6,7 +6,7 @@ const Reading = () => {
   const { reading } = useSelector(state => state.post);
 
   return (
-    <>
+    <div className='min-h-[calc(100vh-113px)]'>
       <h1 className="text-3xl font-bold text-center">Reading List</h1>
       {!reading.length && <h1 className="text-3xl font-bold text-center text-orange-400">Reading list is empty</h1>}
 
@@ -16,7 +16,7 @@ const Reading = () => {
             .map(post => <BlogCard key={post._id} post={post} />)
         }
       </div>
-    </>
+    </div>
   )
 }
 

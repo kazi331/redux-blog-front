@@ -1,14 +1,11 @@
-import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import BlogCard from '../components/BlogCard'
 import Filterbar from '../components/Filterbar'
 
 const Home = () => {
 
-  // Check if user is offline
-  const [offline, setOffline] = useState(false)
-  window.addEventListener('online', () => setOffline(false))
-  window.addEventListener('offline', () => setOffline(true))
+
 
   const { posts } = useSelector(state => state.post);
   const { sort, filter } = useSelector(state => state.filter);
@@ -27,13 +24,14 @@ const Home = () => {
       if (filter.length === 0) return true; // copilot
       return filter.some(tag => post.tags.includes(tag));
     })
+    
     .reverse()
     .map(post => <BlogCard key={post._id} post={post} />);
   // .filter(post => post.tags.some(tag => filter.includes(tag))) // tabnine
 
 
   return (
-    <div className="">
+    <div className="min-h-[calc(100vh-113px)]">
       <Filterbar />
       <div className="flex flex-wrap -m-2">
         {content}

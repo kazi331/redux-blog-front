@@ -7,7 +7,7 @@ const Bookmark = () => {
 
   const { bookmark } = useSelector(state => state.post);
   return (
-    <div className="">
+    <div className="min-h-[calc(100vh-113px)]">
       <h1 className="text-3xl font-bold text-center">Your Bookmarks</h1>
       {!bookmark.length && <h1 className="text-3xl font-bold text-center text-orange-400">No Bookmark Found</h1>}
 

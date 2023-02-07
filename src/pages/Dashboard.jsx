@@ -5,16 +5,16 @@ import DashboardSidebar from './DashboardSidebar'
 
 const Dashboard = () => {
   return (
-    <>
+    <div className='min-h-screen'>
       <Navbar />
-      <div className='text-gray-400 bg-gray-900 body-font flex gap-x-4'>
+      <div className='relative text-gray-400 bg-gray-900 body-font flex gap-x-4'>
         <DashboardSidebar />
         <div className='w-full overflow-auto px-4'>
           <h1 className='text-xl py-4'>Admin Dashboard</h1>
           <Outlet />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
@@ -22,8 +22,8 @@ export default Dashboard
 
 const Navbar = () => {
   return (
-    <div className="flex flex-wrap gap-y-2 justify-center   w-full py-4 px-10 bg-gray-800 sticky top-0">
-      <Link to="/" className="inline-flex items-center bg-gray-700 text-white shadow border-0 py-1 px-3 focus:outline-none hover:bg-indigo-500 rounded text-base md:mt-0">
+    <div className="sticky top-0 flex flex-wrap gap-y-2 justify-center   w-full py-4 px-10 bg-gray-800  z-10">
+      <Link to="/" className=" inline-flex items-center bg-gray-700 text-white shadow border-0 py-1 px-3 focus:outline-none hover:bg-indigo-500 rounded text-base md:mt-0">
         <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1 rotate-180 mr-2" viewBox="0 0 24 24">
           <path d="M5 12h14M12 5l7 7-7 7"></path>
         </svg>

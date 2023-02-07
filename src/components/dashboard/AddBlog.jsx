@@ -71,7 +71,7 @@ const AddBlog = () => {
             <div className="p-2 w-full">
               <div className="relative">
                 <label htmlFor="content" className="leading-7 text-sm text-gray-600">Post Content</label>
-                <textarea id="content" name="content" className="w-full bg-gray-700 bg-opacity-50 rounded border border-gray-600 focus:border-indigo-500  focus:ring-2 focus:ring-indigo-700 h-32 text-base outline-none text-gray-200 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                <textarea id="content" name="content" className="w-full bg-gray-700 bg-opacity-50 rounded border border-gray-600 focus:border-indigo-500  focus:ring-2 focus:ring-indigo-700 h-32 text-base outline-none text-gray-200 py-1 px-3 leading-6 transition-colors duration-200 ease-in-out resize-y" />
               </div>
             </div>
             <div className="p-2 w-full">
