@@ -25,10 +25,11 @@ export const createPost = (post) => {
             body: JSON.stringify(post)
         })
         const data = await res.json();
+        console.log(data.post)
         if (data.success) {
             dispatch({
                 type: CREATE_A_POST,
-                payload: post
+                payload: data.post
             })
         }
         return data;

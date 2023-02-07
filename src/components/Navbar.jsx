@@ -6,7 +6,7 @@ import { rightArrow } from './Icons'
 const Navbar = () => {
   const bookmark = useSelector(state => state.post.bookmark);
   return (
-    <header className="bg-white body-font border-b text-gray-900  shadow-xl">
+    <header className="bg-white body-font border-b text-gray-900  shadow-xl sticky top-0 z-10">
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <Link to="/" className="flex font-medium text-lg items-center text-indigo-500 mb-4 md:mb-0">My Blog</Link>
         <input className="flex items-center h-10 px-4 ml-10 text-sm border-gray-300 bg-gray-100 rounded-full focus:outline-none focus:ring focus:ring-indigo-300" type="search" placeholder="Search for anything…" />
@@ -21,4 +21,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-

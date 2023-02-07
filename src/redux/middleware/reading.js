@@ -5,12 +5,9 @@ export const reading = (store) => (next) => (action) => {
     if (action.type === ADD_TO_READING) {
         const newAction = {
             ...action,
-            payload: { ...action.payload, order: readings.length + 1 }
+            payload: { ...action.payload, order: readings.length }
         }
-
-        console.log(newAction);
         return next(newAction)
     }
-
     return next(action)
 }

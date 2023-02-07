@@ -23,8 +23,11 @@ const postReducer = (state = initialState, action) => {
             }
         case ADD_TO_READING:
             if (state.reading.find(post => post._id === action.payload._id)) {
-                console.log('includes');
-                return state;
+                const newReadingList = state.reading.filter(post => post._id !== action.payload._id);
+                return {
+                    ...state,
+                    reading: [...newReadingList, action.payload]
+                };
             }
             return {
                 ...state,
