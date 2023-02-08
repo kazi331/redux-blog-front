@@ -6,7 +6,7 @@ import { ADD_CONTENT, DELETE_CONTENT, GET_CONTENT, UPDATE_CONTENT } from "../act
 
 export const createPost = (post) => {
     return async (dispatch, getState) => {
-        const res = await fetch('http://localhost:5000/post', {
+        const res = await fetch('https://redux-blog.onrender.com/post', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(post)
@@ -28,7 +28,7 @@ export const createPost = (post) => {
 
 export const loadAllPost = () => {
     return async (dispatch, getState) => {
-        const res = await fetch('http://localhost:5000/posts')
+        const res = await fetch('https://redux-blog.onrender.com/posts')
         const data = await res.json();
         if (data.success) {
             dispatch({
@@ -43,7 +43,7 @@ export const loadAllPost = () => {
 // delete post
 export const deletePost = (id) => {
     return async (dispatch, getState) => {
-        const res = await fetch(`http://localhost:5000/post/${id}`, { method: 'DELETE' })
+        const res = await fetch(`https://redux-blog.onrender.com/post/${id}`, { method: 'DELETE' })
         const data = await res.json();
         console.log(data)
         if (data.success) {
@@ -58,7 +58,7 @@ export const deletePost = (id) => {
 // edit post
 export const editPost = (post) => {
     return async (dispatch, getState) => {
-        const res = await fetch(`http://localhost:5000/post/${post._id}`, {
+        const res = await fetch(`https://redux-blog.onrender.com/post/${post._id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(post)

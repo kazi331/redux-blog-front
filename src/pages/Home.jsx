@@ -24,7 +24,7 @@ const Home = () => {
       if (filter.length === 0) return true; // copilot
       return filter.some(tag => post.tags.includes(tag));
     })
-    
+
     .reverse()
     .map(post => <BlogCard key={post._id} post={post} />);
   // .filter(post => post.tags.some(tag => filter.includes(tag))) // tabnine
@@ -33,6 +33,8 @@ const Home = () => {
   return (
     <div className="min-h-[calc(100vh-113px)]">
       <Filterbar />
+      {/* Placeholder for loading state */}
+      {content.length === 0 && <div className="text-center text-2xl">Loading...</div>}
       <div className="flex flex-wrap -m-2">
         {content}
       </div>
