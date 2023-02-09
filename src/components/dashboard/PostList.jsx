@@ -17,7 +17,7 @@ const PostList = () => {
             <thead>
               <tr className='title-font tracking-wider font-medium text-white text-sm bg-gray-800'>
                 <th className='p-2'>SL.</th>
-                <td><input type="checkbox" name="" id="" className='m-3 p-1 bg-gray-200 rounded-sm border-none text-indigo-500' /></td>
+                {/* <td><input type="checkbox" name="" id="" className='m-3 p-1 bg-gray-200 rounded-sm border-none text-indigo-500' /></td> */}
                 <th className='p-2'>Title</th>
                 <th className='p-2'>Author</th>
                 <th className='p-2'>Date</th>
@@ -31,7 +31,6 @@ const PostList = () => {
                   return (
                     <tr key={post._id} className="tracking-wider">
                       <td className='py-1 px-2'>{i + 1}</td>
-                      <td> <input type="checkbox" name="" id="" className='m-3 p-1 bg-gray-200 rounded-sm border-none text-indigo-500' /></td>
                       <td>
                         <details>
                           <summary className="py-1 px-2 cursor-pointer whitespace-nowrap list-none -ml-2" id="detail" title="Click title to show content" >{title.slice(0, 40)}{title.length > 40 && "..."}</summary>
